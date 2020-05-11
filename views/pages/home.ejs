@@ -1,0 +1,36 @@
+<div class="jumbotron m-5 text-center bg-white text-secondary">
+    <div class="container">
+        <h1 style="font-weight: bold;"> todos </h1>
+    </div>
+<div>
+
+<table class="table table-sm"> 
+    <thead>
+        <tr>
+          <th scope="col">Select</th>
+          <th scope="col">Todo Name</th>
+          <th scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var db of events){ %>
+        <tr>
+          <td><%- include('chkCircle') %></td>
+          <td><%= db.name %></td>
+          <td>
+            <a href="/home/<%= db.name%>/remove" class="btn btn-danger rounded-circle">X</a>
+        </td>
+        </tr>
+        <% } %>
+        </tbody>
+</table>
+
+<div class="row d-flex ">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form action="/home/" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="E.g. Build a web app" class="form-control">
+            </div>
+        </form>
+    </div>
+</div>
